@@ -29,3 +29,8 @@ Route::post('/save-video',array(
     "middleware" => 'auth',
     'uses'       => 'VideosController@saveVideo'
 ));
+
+Route::get("/miniatura/{flename}",array(
+    "as"    => "imageVideo",
+    "uses"  => "VideosController@getImage"
+));

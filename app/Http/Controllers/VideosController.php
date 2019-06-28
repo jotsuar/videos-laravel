@@ -66,4 +66,14 @@ class VideosController extends Controller
         );
         
     }
+
+    public function getImage($fileName){
+
+        if (\Storage::disk('images')->exists($fileName)) {
+            $file = \Storage::disk("images")->get($fileName);
+        }else{
+            $file = \Storage::disk("images")->get("noimage.png");
+        }
+        return new Response($file);
+    }
 }
